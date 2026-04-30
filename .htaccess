@@ -1,0 +1,13 @@
+# Disable directory listing
+Options -Indexes
+
+RewriteEngine On
+
+# Block access to hidden files (anything that starts with dot, i.e. .env, .git)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Allow only /public
+RewriteCond %{REQUEST_URI} !/public/
+RewriteRule ^ - [F,L]

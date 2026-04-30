@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Config;
+
+class Env {
+    private static $variables = [];
+    private static $loaded = false;
+
+    public static function load($filePath) {
+        if (self::$loaded) {
+            return;
+        }
+
+        if (!file_exists($filePath)) {
+            throw new \Exception(".env file not found at: $filePath");
+        }
+
+        $lines = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+        foreach ($lines as $line) {
+
+            if (strpos(trim($line), '#') === 0) {
+                continue;
+            }
+
+            if (strpos($line, '=') !== false) {
+                list($key, $value) = explode('=', $line, 2);
+                $key = trim($key);
+                $value = trim($value);
+
+                self::$variables[$key] = $value;
+                putenv("$key=$value");
+                $_ENV[$key] = $value;
+            }
+        }
+
+        self::$loaded = true;
+    }
+
+    public static function get($key, $default = null) {
+        return self::$variables[$key] ?? getenv($key) ?: $default;
+    }
+
+    public static function require($key) {
+        $value = self::get($key);
+
+        if ($value === null) {
+            throw new \Exception("Required environment variable not found: $key");
+        }
+
+        return $value;
+    }
+}
