@@ -38,7 +38,13 @@ class Env {
     }
 
     public static function get($key, $default = null) {
-        return self::$variables[$key] ?? getenv($key) ?: $default;
+        if (array_key_exists($key, self::$variables)) {
+            return self::$variables[$key];
+        }
+
+        $value = getenv($key);
+
+        return $value !== false ? $value : $default;
     }
 
     public static function require($key) {
