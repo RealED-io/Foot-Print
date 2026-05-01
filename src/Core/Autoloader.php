@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+// Used to cleanly load / import other .php files
 class Autoloader {
     private static $baseDir;
 

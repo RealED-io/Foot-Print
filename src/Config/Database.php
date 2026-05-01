@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Config;
+
+use PDO;
+
+class Database {
+    public static function connect() {
+        $host = Env::require('DB_HOST');
+        $db = Env::require('DB_NAME');
+        $user = Env::get('DB_USER');
+        $pass = Env::get('DB_PASS');
+
+        return new PDO(
+            "mysql:host=$host;dbname=$db;charset=utf8mb4",
+            $user,
+            $pass,
+            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+        );
+    }
+}
