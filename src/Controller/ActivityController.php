@@ -16,7 +16,7 @@ class ActivityController {
         AuthMiddleware::check();
 
         $referenceActivities = $this->service->getReferenceActivities();
-        $activities = $this->service->getUserActivities($_SESSION['user']->id);
+        $activities = $this->service->getUserActivities($_SESSION['user']->getId());
 
         require __DIR__ . '/../../views/activities/index.php';
     }
@@ -33,7 +33,7 @@ class ActivityController {
         AuthMiddleware::check();
 
         $this->service->create(
-            $_SESSION['user']->id,
+            $_SESSION['user']->getId(),
             $_POST['reference_activity_id'],
             $_POST['value']
         );

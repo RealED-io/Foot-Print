@@ -33,12 +33,12 @@ class UserRepository {
         ");
 
         $stmt->execute([
-            'name' => $user->name,
-            'email' => $user->email,
-            'password' => $user->password
+            'name' => $user->getName(),
+            'email' => $user->getEmail(),
+            'password' => $user->getPassword()
         ]);
 
-        $user->id = (int)$db->lastInsertId();
+        $user->setId((int)$db->lastInsertId());
 
         return $user;
     }

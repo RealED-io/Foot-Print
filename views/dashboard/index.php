@@ -5,7 +5,7 @@ require __DIR__ . '/../layouts/header.php';
     <h1>Dashboard</h1>
 
     <p>
-        Welcome, <?= $_SESSION['user']->name ?>
+        Welcome, <?= $_SESSION['user']->getName() ?>
     </p>
 
     <hr>

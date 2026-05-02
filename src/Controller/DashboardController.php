@@ -16,7 +16,7 @@ class DashboardController {
         AuthMiddleware::check();
 
         // activities grouped by day
-        $grouped = $this->activityService->getLast7DaysSummary($_SESSION['user']->id);
+        $grouped = $this->activityService->getLast7DaysSummary($_SESSION['user']->getId());
 
         $dailySummaries = [];
 

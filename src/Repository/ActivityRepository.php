@@ -19,12 +19,12 @@ class ActivityRepository {
 
         // Reference activity existence will be enforced by DB
         $stmt->execute([
-            'user_id' => $activity->userId,
-            'ref_id' => $activity->referenceActivity->id,
-            'value' => $activity->value
+            'user_id' => $activity->getUserId(),
+            'ref_id' => $activity->getReferenceActivity()->getId(),
+            'value' => $activity->getValue()
         ]);
 
-        $activity->id = (int)$db->lastInsertId();
+        $activity->setId((int)$db->lastInsertId());
 
         return $activity;
     }
@@ -89,10 +89,10 @@ class ActivityRepository {
                     'baseline_id' => null
                 ]);
 
-                $ref->baseline = $baseline;
+                $ref->setBaseline($baseline);
             }
 
-            $activity->referenceActivity = $ref;
+            $activity->setReferenceActivity($ref);
 
             $activities[] = $activity;
         }
@@ -170,10 +170,10 @@ class ActivityRepository {
                     'baseline_id' => null
                 ]);
 
-                $ref->baseline = $baseline;
+                $ref->setBaseline($baseline);
             }
 
-            $activity->referenceActivity = $ref;
+            $activity->setReferenceActivity($ref);
 
             $data[$date][] = $activity;
         }

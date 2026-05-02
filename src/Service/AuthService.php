@@ -15,8 +15,8 @@ class AuthService {
 
     public function register(string $name, string $email, string $password): User {
         $user = new User();
-        $user->name = $name;
-        $user->email = $email;
+        $user->setName($name);
+        $user->setEmail($email);
         $user->setPassword($password);
 
         return $this->repo->save($user);

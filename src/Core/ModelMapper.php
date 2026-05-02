@@ -12,10 +12,10 @@ class ModelMapper {
     public static function mapUser(array $data): User {
         $user = new User();
 
-        $user->id = (int)$data['id'];
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->password = $data['password'];
+        $user->setId((int)$data['id']);
+        $user->setName($data['name']);
+        $user->setEmail($data['email']);
+        $user->setPassword($data['password']); 
 
         return $user;
     }
@@ -23,13 +23,13 @@ class ModelMapper {
     public static function mapReferenceActivity(array $data): ReferenceActivity {
         $activity = new ReferenceActivity();
 
-        $activity->id = $data['id'];
-        $activity->name = $data['name'];
-        $activity->unit = $data['unit'];
-        $activity->emissionFactor = $data['emission_factor'];
-        $activity->baselineId = $data['baseline_id']
+        $activity->setId((int)$data['id']);
+        $activity->setName($data['name']);
+        $activity->setUnit($data['unit']);
+        $activity->setEmissionFactor((float)$data['emission_factor']);
+        $activity->setBaselineId($data['baseline_id']
             ? (int)$data['baseline_id']
-            : null;
+            : null);
 
         return $activity;
     }
@@ -37,10 +37,10 @@ class ModelMapper {
     public static function mapActivity(array $data): Activity {
         $activity = new Activity();
 
-        $activity->id = $data['id'];
-        $activity->userId = $data['user_id'];
-        $activity->value = $data['value'];
-        $activity->createdAt = $data['created_at'];
+        $activity->setId($data['id']);
+        $activity->setUserId($data['user_id']);
+        $activity->setValue($data['value']);
+        $activity->setCreatedAt($data['created_at']);
 
         return $activity;
     }

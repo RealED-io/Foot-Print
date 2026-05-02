@@ -17,9 +17,9 @@ class ActivityService {
 
     public function create(int $userId, int $refId, float $value): Activity {
         $activity = new Activity();
-        $activity->userId = $userId;
-        $activity->referenceActivity = $this->refRepo->findById($refId);
-        $activity->value = $value;
+        $activity->setUserId($userId);
+        $activity->setReferenceActivity($this->refRepo->findById($refId));
+        $activity->setValue($value);
 
         return $this->repo->save($activity);
     }

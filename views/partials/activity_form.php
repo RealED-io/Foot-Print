@@ -10,8 +10,8 @@ use App\Entity\ReferenceActivity;
         <select id="reference_activity" name="reference_activity_id" required>
             <?php /** @var ReferenceActivity[] $referenceActivities */
             foreach ($referenceActivities as $ref): ?>
-                <option value="<?= $ref->id ?>">
-                    <?= $ref->name ?> (<?= $ref->unit ?>)
+                <option value="<?= $ref->getId() ?>">
+                    <?= $ref->getName() ?> (<?= $ref->getUnit() ?>)
                 </option>
             <?php endforeach; ?>
         </select>
