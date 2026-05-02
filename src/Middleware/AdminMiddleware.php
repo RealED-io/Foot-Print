@@ -13,7 +13,7 @@ class AdminMiddleware {
 
         // Check submitted password
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['admin_password'])) {
-            $envPassword = Env::get('ADMIN_PASSWORD');
+            $envPassword = Env::require('ADMIN_PASSWORD');
 
             if ($_POST['admin_password'] === $envPassword) {
                 $_SESSION['is_admin'] = true;
