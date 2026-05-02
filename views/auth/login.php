@@ -2,6 +2,10 @@
 require __DIR__ . '/../layouts/header.php';
 ?>
 
+    <?php if (isset($error)): ?>
+        <p style="color: red;"><?= htmlspecialchars($error) ?></p>
+    <?php endif; ?>
+
     <form method="POST" action="<?= BASE_URL ?>/login">
         <label for="email">
             Email

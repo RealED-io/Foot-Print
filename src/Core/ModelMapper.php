@@ -15,7 +15,7 @@ class ModelMapper {
         $user->setId((int)$data['id']);
         $user->setName($data['name']);
         $user->setEmail($data['email']);
-        $user->setPassword($data['password']); 
+        $user->setPasswordHash($data['password']);
 
         return $user;
     }

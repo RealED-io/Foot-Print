@@ -17,6 +17,10 @@ class User {
         $this->password = password_hash($plain, PASSWORD_BCRYPT);
     }
 
+    public function setPasswordHash(string $hash): void {
+        $this->password = $hash;
+    }
+
     public function getPassword(): string {
         return $this->password;
     }

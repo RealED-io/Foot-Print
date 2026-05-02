@@ -41,7 +41,8 @@ class AuthController {
         );
 
         if (!$user) {
-            echo "Invalid credentials";
+            $error = "Invalid credentials";
+            require __DIR__ . '/../../views/auth/login.php';
             return;
         }
 
