@@ -5,19 +5,17 @@ use App\Entity\Activity;
 
 ?>
 
-<li>
-    <strong><?= $activity_item->getName() ?></strong>
-    - <?= $activity_item->getValue() ?> <?= $activity_item->getUnit() ?>
+<strong><?= $activity_item->getName() ?></strong>
+- <?= $activity_item->getValue() ?> <?= $activity_item->getUnit() ?>
 
-    <br>
+<br>
 
-    Emission: <?= floor($activity_item->getEmission()) ?> g CO₂
+Emission: <?= floor($activity_item->getEmission()) ?> g CO₂
 
-    <br>
+<br>
 
-    Saved: <?= floor($activity_item->getCarbonSaved()) ?> g CO₂
+Saved: <?= floor($activity_item->getCarbonSaved()) ?> g CO₂
 
-    <?php if ($activity_item->getReferenceActivity()->hasBaseline()): ?>
-        vs <?= $activity_item->getReferenceActivity()->getBaselineName() ?>
-    <?php endif; ?>
-</li>
+<?php if ($activity_item->getReferenceActivity()->hasBaseline()): ?>
+    vs <?= $activity_item->getReferenceActivity()->getBaselineName() ?>
+<?php endif; ?>

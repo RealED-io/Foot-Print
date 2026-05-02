@@ -45,6 +45,7 @@ $routes = [
 
     'GET /logout' => [AuthController::class, 'logout'],
 
+    'GET /admin' => [AdminReferenceActivityController::class, 'index'],
     'GET /admin/reference-activities' => [AdminReferenceActivityController::class, 'index'],
     'GET /admin/reference-activities/create' => [AdminReferenceActivityController::class, 'create'],
     'POST /admin/reference-activities' => [AdminReferenceActivityController::class, 'store'],

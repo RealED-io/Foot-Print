@@ -19,7 +19,6 @@
 
         <a href="<?= BASE_URL ?>/dashboard">Dashboard</a>
         <a href="<?= BASE_URL ?>/activities">Activities</a>
-        <a href="<?= BASE_URL ?>/activities/create">Add</a>
 
         <?php if (IS_LOGGED_IN): ?>
             <a href="<?= BASE_URL ?>/logout">Logout</a>
