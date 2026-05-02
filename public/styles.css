@@ -1,0 +1,234 @@
+/* reset defaults */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* COLOR PALETTE */
+:root {
+    --ghost: #fffaff;
+    --carbon: #1e1b18;
+    --imperial-blue: #0A2463;
+
+    --bg: var(--ghost);
+    --text: var(--carbon);
+    --text-lt: #555;
+    --link: var(--imperial-blue);
+    --accent: brown;
+    --border: #ddd8e0;
+}
+
+/* GENERIC & INHERITABLE STYLES */
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    flex-grow: 1;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* ACTIVITY ITEMS */
+li {
+    list-style: none;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+.activities-list {
+    margin-top: 2rem;
+}
+
+/* FORMS */
+.add-activity {
+    margin: 1rem 0;
+}
+
+form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+form select,
+form input,
+form button {
+    padding: 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+form button {
+    padding: 0.6rem 1.2rem;
+    background: var(--accent);
+    color: var(--ghost);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* DETAILS & SUMMARIES */
+details {
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+summary {
+    padding: 1rem;
+    font-weight: 500;
+}
+
+summary:hover {
+    background: rgba(0,0,0,0.02);
+}
+
+.details.good {
+    background-color: #e6ffed;
+    border-color: #2ecc71;
+    color: #1b5e20;
+}
+
+.details.warning {
+    background-color: #fff4e5;
+    border-color: #f39c12;
+    color: #bf360c;
+}
+
+.details.neutral {
+    background-color: var(--ghost);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+details ul {
+    padding: 0 1rem 1rem 1rem;
+}
+
+/* DELETE BUTTON */
+form[action$="/delete"] button {
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+/* HEADER & NAV */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.875rem 2rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.logo a {
+    color: var(--accent);
+}
+
+.nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav a {
+    font-size: 0.88em;
+    color: var(--text-lt);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: var(--accent);
+}
+
+/* FOOTER */
+.app-footer {
+    padding: 1.25rem 0;
+    text-align: center;
+    color: var(--text-lt);
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+    margin-top: auto;
+}
+
+.app-footer a {
+    color: var(--link);
+}
+
+.app-footer a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container {
+        padding: 1.5rem 1rem;
+    }
+}

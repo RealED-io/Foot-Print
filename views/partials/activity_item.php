@@ -6,7 +6,7 @@ use App\Entity\Activity;
 ?>
 
 <strong><?= $activity_item->getName() ?></strong>
-- <?= $activity_item->getValue() ?> <?= $activity_item->getUnit() ?>
+<?= $activity_item->getValue() ?> <?= $activity_item->getUnit() ?>
 
 <br>
 

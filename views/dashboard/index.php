@@ -11,7 +11,7 @@ require __DIR__ . '/../layouts/header.php';
 
     <hr>
 
-    <section>
+    <section class="add-activity">
         <h2>Quick Add Activity</h2>
         <?php require __DIR__ . '/../partials/activity_form.php'; ?>
     </section>
@@ -23,7 +23,7 @@ require __DIR__ . '/../layouts/header.php';
 
         <?php /** @var $dailySummaries */
         foreach ($dailySummaries as $day): ?>
-            <?php /** @var $recommendation */ ?>
+            <?php $recommendation = $day['recommendation']; ?>
             <details class="details <?= $recommendation['type'] ?>">
                 <summary>
                     <strong><?= $day['date'] ?></strong>

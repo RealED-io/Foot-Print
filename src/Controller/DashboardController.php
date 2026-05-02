@@ -28,6 +28,7 @@ class DashboardController {
             $totalEmission = 0;
             $totalSaved = 0;
             $count = 0;
+            $netImpact = 0;
             $processedActivities = [];
 
             foreach ($activities as $activity) {

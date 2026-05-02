@@ -7,9 +7,11 @@ require __DIR__ . '/../layouts/header.php';
 
     <h2>Your Activities</h2>
 
-<?php
-include __DIR__ . '/../../views/partials/activity_form.php';
-?>
+    <section class="add-activity">
+        <?php
+        include __DIR__ . '/../../views/partials/activity_form.php';
+        ?>
+    </section>
 
     <ul>
         <?php /** @var Activity[] $activities */
