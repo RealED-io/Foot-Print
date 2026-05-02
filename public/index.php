@@ -1,6 +1,7 @@
 <?php
 
 use App\Controller\ActivityController;
+use App\Controller\AdminReferenceActivityController;
 use App\Controller\AuthController;
 use App\Controller\DashboardController;
 
@@ -43,6 +44,12 @@ $routes = [
     'POST /register' => [AuthController::class, 'register'],
 
     'GET /logout' => [AuthController::class, 'logout'],
+
+    'GET /admin/reference-activities' => [AdminReferenceActivityController::class, 'index'],
+    'GET /admin/reference-activities/create' => [AdminReferenceActivityController::class, 'create'],
+    'POST /admin/reference-activities' => [AdminReferenceActivityController::class, 'store'],
+    'POST /admin/logout' => [AdminReferenceActivityController::class, 'logout'],
+    'POST /admin/reference-activities/delete' => [AdminReferenceActivityController::class, 'delete']
 ];
 
 // Match method + uri to routes map

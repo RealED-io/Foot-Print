@@ -142,7 +142,7 @@ class ActivityRepository {
 
         $data = [];
 
-        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
             $date = $row['activity_date'];
 
