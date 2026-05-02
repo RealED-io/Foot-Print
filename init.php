@@ -13,7 +13,9 @@ session_start();
 // Load environment variables, intentional no try catch
 Env::load(__DIR__ . '/.env');
 
-define('BASE_URL', '/' . Env::require('APP_NAME') . '/public');
+$scriptName = dirname($_SERVER['SCRIPT_NAME']);
+$basePath = rtrim(str_replace('\\', '/', $scriptName), '/');
+define('BASE_URL', $basePath);
 
 define('IS_LOGGED_IN', isset($_SESSION['user']));
 

@@ -4,7 +4,7 @@
     <title>Foot-Print</title>
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="<?= BASE_URL ?> ./styles.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/styles.css">
 </head>
 
 <body>
