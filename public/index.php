@@ -1,5 +1,6 @@
 <?php
 
+use App\Controller\ActivityController;
 use App\Controller\AuthController;
 use App\Controller\DashboardController;
 
@@ -28,6 +29,12 @@ if (isset($_SESSION['user']) && in_array($uri, $guestOnlyRoutes)) {
 $routes = [
     'GET /' => [DashboardController::class, 'index'],
     'GET /dashboard' => [DashboardController::class, 'index'],
+    'GET /dashboard/day' => [DashboardController::class, 'dayDetails'],
+
+    'GET /activities' => [ActivityController::class, 'index'],
+    'GET /activities/create' => [ActivityController::class, 'create'],
+    'POST /activities' => [ActivityController::class, 'store'],
+    'POST /activities/delete' => [ActivityController::class, 'delete'],
 
     'GET /login' => [AuthController::class, 'showLogin'],
     'POST /login' => [AuthController::class, 'login'],
